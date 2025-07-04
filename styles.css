@@ -1,0 +1,108 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Arial;
+}
+/* 
+:root{
+  --grid-size: 4;
+  --cell-size: 14vmin;
+  --cell-gap: 1.4vmin;
+  --x: 0;
+  --y:0;
+}
+ */
+body {
+  /* background-color: #231626; */
+  background-color: #030613;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-size: 7.5vmin;
+}
+
+.videoView{
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+
+#webcam.flip, #output_canvas.flip{
+transform: scaleX(-1);
+}
+
+#webcam, #output_canvas{
+/* transform: scaleX(-1); */
+}
+#webcam, #output_canvas{
+width: 25%;
+border-radius: 10px;
+}
+
+.bg-cover{
+ padding-inline: 5vmin;
+ height: 90vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 3vmin;
+ background: url(bg_1.png) no-repeat center center/cover;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+  grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+  background-color: #00000057;
+  backdrop-filter: blur(2px);
+  gap: var(--cell-gap);
+  border-radius: 1vmin;
+  padding: var(--cell-gap);
+  position: relative;
+}
+
+.cell {
+  background-color: #01518031;
+  border: 1px solid #015180; 
+  border-radius: 1vmin;
+}
+
+.tile {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 1vmin;
+  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  font-weight: bold;
+  background-color: rgba(var(--block-color),0.5);
+  color: rgb(var(--block-color));
+  border: 2px solid rgb(var(--block-color));
+  box-shadow: 0px 0px 14px 1px rgba(var(--block-color),0.66),
+  inset 0px 0px 20px 2px rgba(var(--block-color),0.8);
+  animation: show 200ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
+
+.tile_2{
+   --x:0;
+  --y:0;
+  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  background-color: rgba(71,254,251,0.5);
+  color: rgb(71,254,251);
+  border: 2px solid rgb(71,254,251);
+  box-shadow: 0px 0px 14px 1px rgba(71,254,251,0.66),
+  inset 0px 0px 20px 2px rgba(71,254,251,0.8);
+}
+
+@keyframes show {
+  0% {
+    opacity: .5;
+    transform: scale(0);
+  }
+}
