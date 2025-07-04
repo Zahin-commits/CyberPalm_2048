@@ -22,6 +22,10 @@ body {
   font-size: 7.5vmin;
 }
 
+#webcamButton.hide{
+  display: none;
+}
+
 .videoView{
  position: absolute;
  top: 0;
@@ -32,9 +36,9 @@ body {
 transform: scaleX(-1);
 }
 
-#webcam, #output_canvas{
-/* transform: scaleX(-1); */
-}
+/* #webcam, #output_canvas{
+ transform: scaleX(-1); 
+} */
 #webcam, #output_canvas{
 width: 25%;
 border-radius: 10px;

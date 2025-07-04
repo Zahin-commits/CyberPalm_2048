@@ -151,7 +151,8 @@ const SWIPE_RATIO = 1.3; // X-axis multiplier for sensitivity
     } else {
       webcamRunning = true;
       
-      enableWebcamButton.innerText = "DISABLE WEBCAM";
+      // enableWebcamButton.innerText = "DISABLE WEBCAM";
+      enableWebcamButton.classList.add("hide");
     }
   
     // getUsermedia parameters.
