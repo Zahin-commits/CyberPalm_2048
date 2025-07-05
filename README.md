@@ -9,7 +9,7 @@ Built with a **cyberpunk theme**, this project uses **real-time hand tracking** 
 ## 🚀 Live Demo
 
 👉 [Click here to play CyberPalm 2048](#)  
-🔗 *https://cyber-palm-2048.vercel.app*
+🔗 https://cyber-palm-2048.vercel.app
 
 ---
 
