@@ -16,8 +16,6 @@ const MIN_SWIPE_DISTANCE_X = 0.10; // 30% smaller than before (was ~0.15)
 const MIN_SWIPE_DISTANCE_Y = 0.15; // Kept Y-axis same
 const SWIPE_RATIO = 1.3; // X-axis multiplier for sensitivity
   
-  // const demosSection = document.getElementById("demos");
-  
   let handLandmarker = undefined;
   let runningMode = "IMAGE";
   let enableWebcamButton;
@@ -50,75 +48,7 @@ const SWIPE_RATIO = 1.3; // X-axis multiplier for sensitivity
     // demosSection.classList.remove("invisible");
   };
   createHandLandmarker();
-  
-  /********************************************************************
-  // Demo 1: Grab a bunch of images from the page and detection them
-  // upon click.
-  ********************************************************************/
-  
-  // In this demo, we have put all our clickable images in divs with the
-  // CSS class 'detectionOnClick'. Lets get all the elements that have
-  // this class.
-  // const imageContainers = document.getElementsByClassName("detectOnClick");
-  
-  // // Now let's go through all of these and add a click event listener.
-  // for (let i = 0; i < imageContainers.length; i++) {
-  //   // Add event listener to the child element whichis the img element.
-  //   imageContainers[i].children[0].addEventListener("click", handleClick);
-  // }
-  
-  // When an image is clicked, let's detect it and display results!
-  // async function handleClick(event) {
-  //   if (!handLandmarker) {
-  //     console.log("Wait for handLandmarker to load before clicking!");
-  //     return;
-  //   }
-  
-  //   if (runningMode === "VIDEO") {
-  //     runningMode = "IMAGE";
-  //     await handLandmarker.setOptions({ runningMode: "IMAGE" });
-  //   }
-  //   // Remove all landmarks drawed before
-  //   const allCanvas = event.target.parentNode.getElementsByClassName("canvas");
-  //   for (var i = allCanvas.length - 1; i >= 0; i--) {
-  //     const n = allCanvas[i];
-  //     n.parentNode.removeChild(n);
-  //   }
-  
-  //   // We can call handLandmarker.detect as many times as we like with
-  //   // different image data each time. This returns a promise
-  //   // which we wait to complete and then call a function to
-  //   // print out the results of the prediction.
-  //   const handLandmarkerResult = handLandmarker.detect(event.target);
-  //   console.log(handLandmarkerResult.handednesses[0][0]);
-  //   const canvas = document.createElement("canvas");
-  //   canvas.setAttribute("class", "canvas");
-  //   canvas.setAttribute("width", event.target.naturalWidth + "px");
-  //   canvas.setAttribute("height", event.target.naturalHeight + "px");
-  //   canvas.style =
-  //     "left: 0px;" +
-  //     "top: 0px;" +
-  //     "width: " +
-  //     event.target.width +
-  //     "px;" +
-  //     "height: " +
-  //     event.target.height +
-  //     "px;";
-  
-  //   event.target.parentNode.appendChild(canvas);
-  //   const cxt = canvas.getContext("2d");
-  //   for (const landmarks of handLandmarkerResult.landmarks) {
-  //     drawConnectors(cxt, landmarks, HAND_CONNECTIONS, {
-  //       color: "#00FF00",
-  //       lineWidth: 5
-  //     });
-  //     drawLandmarks(cxt, landmarks, { color: "#FF0000", lineWidth: 1 });
-  //   }
-  // }
-  
-  /********************************************************************
-  // Demo 2: Continuously grab image from webcam stream and detect it.
-  ********************************************************************/
+
   
   const video = document.getElementById("webcam") //as HTMLVideoElement;
   const canvasElement = document.getElementById(
@@ -238,28 +168,7 @@ if (isPinching) {
   pinchStartPosition = null; // Reset when hand opens
 }
 
-// New function to determine direction
-// function determineSwipeDirection(dx, dy) {
-//   const angle = Math.atan2(dy, dx) * 180 / Math.PI;
-  
-//   if (Math.abs(dx) > Math.abs(dy)) { // Horizontal swipe
-//     if (angle > -45 && angle < 45) {
-//       console.log("SWIPE RIGHT →");
-//       // Call your 2048 moveRight() function here
-//     } else {
-//       console.log("SWIPE LEFT ←");
-//       // moveLeft()
-//     }
-//   } else { // Vertical swipe
-//     if (angle > 0) {
-//       console.log("SWIPE DOWN ↓");
-//       // moveDown()
-//     } else {
-//       console.log("SWIPE UP ↑");
-//       // moveUp()
-//     }
-//   }
-// }
+
  function determineSwipeDirection(dx, dy) {
   // Apply sensitivity boost to X-axis (Issue #2)
   dx *= SWIPE_RATIO;

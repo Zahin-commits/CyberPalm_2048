@@ -6,22 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CyberPalm2048</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
   <script src="script.js" type="module"></script>
   <script src="handtrack.js" type="module"></script>
 </head>
 <body>
   <div id="liveView" class="videoView">
-      <button id="webcamButton" class="mdc-button mdc-button--raised">
-        <span class="mdc-button__ripple"></span>
-        <span class="mdc-button__label">ENABLE WEBCAM</span>
+      <button id="webcamButton" class="btn">
+        <span >ENABLE WEBCAM</span>
       </button>
-      <button class="mdc-button mdc-button--raised">
-        <span class="mdc-button__ripple"></span>
-        <span id="flip_webcam" class="mdc-button__label">FLIP WEBCAM</span>
+      <button class="btn">
+        <span id="flip_webcam">FLIP WEBCAM</span>
       </button>
       <div style="position: relative;">
         <video id="webcam" autoplay playsinline></video>
